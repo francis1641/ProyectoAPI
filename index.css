@@ -1,0 +1,37 @@
+:root {
+    font-size: 62.5%; 
+ /* Main Color */
+ --primary-color: #00832C;
+
+ 
+ /* Secondary Color */
+ --secondary-color: #830056;
+ 
+ /* Secondary Color Modified */
+ --secondary-color-m: #ff94088e;
+ 
+ /* tertiary color */
+ --tertiary-color: #017374;
+ 
+ /* tertiary color modified */
+ --tertiary-color-m: #01727498;
+ }
+
+header{
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+
+header input, img{
+    margin: 0.2rem;
+}
+
+
+
+div#prueba{
+    display: flex;
+
+}
+
