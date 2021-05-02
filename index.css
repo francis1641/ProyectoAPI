@@ -29,9 +29,13 @@ header input, img{
 }
 
 
-
 div#prueba{
     display: flex;
+    flex-direction: column;
 
+}
+div#prueba img{
+    width: 300px;
+    height: 200px;
 }
 
