@@ -11,15 +11,20 @@
 </head>
 <body>
    <header>
-        <input placeholder="Escriba aqui su busqueda">
+        <input id="buscador" placeholder="Escriba aqui su busqueda" onkeyup="buscar()">
         <img src="img/BanderaUSA.png" alt="BanderaUSA" width="30" height="20">
         <img src="img/BanderaFrancia.png" alt="BanderaFrancia" width="30" height="20">
+        <button id="business" onclick="loadDoc()">Business</button>
+        <button id="entertainment" onclick="loadDoc()">Entertainment</button>
+        <button id="general" onclick="loadDoc()">General</button>
+        <button id="health" onclick="loadDoc()">Health</button>
+
    </header>
 
    <div id="modalDetalle" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="document.getElementById('modalDetalle').style.display='none'" class="w3-button w3-display-topright">&times;</span>
         <p class="Autor"></p>
         <p class="contenido"></p>
         <p class="descripcion"></p>

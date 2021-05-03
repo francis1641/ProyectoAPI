@@ -1,17 +1,24 @@
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
+    //evento=window.event;
+    //categoria=evento.target.id;
+
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        var misDatos= JSON.parse(this.responseText);
+    
+        misDatos= JSON.parse(this.responseText);
         //mostrarTitulo(misDatos);
         for(let i=0;i<misDatos.articles.length;i++){
         crearCard(misDatos.articles[i]);
         }
+        
       }
     };
-    xhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=us&category=entertainment&everything?q=Apple&from=2021-05-01&sortBy=popularity&apiKey=5e976ef6430f49e08d17ea33c7605f41", true);
+    xhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=us&category=business&everything?q=bitcoin&apiKey=5e976ef6430f49e08d17ea33c7605f41", true);
     xhttp.send();
 }
+
+//
 
 function mostrarTitulo(datos){
     div=document.createElement("div");
@@ -51,65 +58,31 @@ function crearCard(noticia){
   divpadre.appendChild(boton);
   document.body.appendChild(divpadre);
 }
+
+
  function mostrarDetalle(articulo)
  {
     modal = document.getElementById("modalDetalle");
-    modal.children[0].children[0].children[1].innerHTML= articulo.author;
-    modal.children[0].children[0].children[1].innerHTML= articulo.author;
-    modal.children[0].children[0].children[1].innerHTML= articulo.author;
+    if(articulo.author==null)
+      modal.children[0].children[0].children[1].innerHTML= "No hay autor";
+    else 
+      modal.children[0].children[0].children[1].innerHTML= articulo.author;
+    
+      if(articulo.content==null)
+        modal.children[0].children[0].children[2].innerHTML= "No hay contenido";
+      else 
+        modal.children[0].children[0].children[2].innerHTML= articulo.content;
+    
+      if(articulo.description==null)
+        modal.children[0].children[0].children[2].innerHTML= "No hay descripcion";
+      else 
+        modal.children[0].children[0].children[2].innerHTML= articulo.description;
+    modal.children[0].children[0].children[3].innerHTML= articulo.description;
+    modal.children[0].children[0].children[4].innerHTML= articulo.publishedAt;
+    modal.children[0].children[0].children[5].innerHTML= articulo.url;
   
     //modal.innerHTML = articulo.author;
     modal.style.display = "block";
 
  }
-
-function masinformacion(){
-  divmodal=document.createElement("div");
-  divmodal.setAttribute("id", "w3-modal");
-  divmodal.setAttribute("class", "w3-modal");
-
-
-  divmodalcontent=document.createElement("div");
-  divmodalcontent.setAttribute("class", "w3-modal-content");
-
-  divcontainer=document.createElement("div");
-  divcontainer.setAttribute("class", "w3-container");
-
-  span=document.createElement("span");
-  span.setAttribute("onclick", "document.getElementById('').style.display='none'")
-
-  autor=document.createElement("p");
-  if(datos.articles[indice].author==null)
-    autor.innerHTML= "No hay autor";
-  else 
-    autor.innerHTML=datos.articles[indice].author;
-
-  contenido=document.createElement("p");
-  if(datos.articles[indice].content==null)
-    contenido.innerHTML= "No hay contenido";
-  else 
-    contenido.innerHTML=datos.articles[indice].content;
-
-  descripcion=document.createElement("p");
-
-  if(datos.articles[indice].content==null)
-  descripcion.innerHTML= "No hay descripcion";
-else 
-  descripcion.innerHTML=datos.articles[indice].description;
-  
-  publicado=document.createElement("p");
-  publicado.innerHTML=datos.articles[indice].publishedAt;
-  url=document.createElement("p");
-  url.innerHTML=datos.articles[indice].url;
-
-  divcontainer.appendChild(span);
-  divcontainer.appendChild(autor);
-  divcontainer.appendChild(contenido);
-  divcontainer.appendChild(descripcion);
-  divcontainer.appendChild(publicado);
-  divcontainer.appendChild(url);
-
-  divmodalcontent.appendChild(divcontainer);
-  divmodal.appendChild(divmodalcontent);
-}
 
