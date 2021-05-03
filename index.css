@@ -28,14 +28,3 @@ header input, img{
     margin: 0.2rem;
 }
 
-
-div#prueba{
-    display: flex;
-    flex-direction: column;
-
-}
-div#prueba img{
-    width: 300px;
-    height: 200px;
-}
-

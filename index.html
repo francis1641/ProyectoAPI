@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
    <header>
@@ -15,14 +16,18 @@
         <img src="img/BanderaFrancia.png" alt="BanderaFrancia" width="30" height="20">
    </header>
 
-   <div id="global">
-        <div id="prueba">
-            <h3>Titulo</h3>
-            <img src="img/BanderaFrancia.png" alt="">
-        </div>
-        <div id="content">
-
-        </div>
+   <div id="modalDetalle" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <p class="Autor"></p>
+        <p class="contenido"></p>
+        <p class="descripcion"></p>
+        <p class="publicado"></p>
+        <p class="url"></p>
+      </div>
     </div>
+  </div>
+</div>
 </body>
 </html>
