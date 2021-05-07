@@ -11,16 +11,16 @@
 </head>
 <body>
    <header>
-        <input id="buscador" placeholder="Escriba aqui su busqueda" onkeyup="buscar()">
+        <input id="buscador" placeholder="Escriba aqui su busqueda" onkeyup="peticionBuscador()">
         <img src="img/BanderaUSA.png" alt="BanderaUSA" width="30" height="20">
         <img src="img/BanderaFrancia.png" alt="BanderaFrancia" width="30" height="20">
-        <button id="business" onclick="loadDoc()">Business</button>
-        <button id="entertainment" onclick="loadDoc()">Entertainment</button>
-        <button id="general" onclick="loadDoc()">General</button>
-        <button id="health" onclick="loadDoc()">Health</button>
+        <button id="business" onclick="peticionBusiness()">Business</button>
+        <button id="entertainment" onclick="peticionEntertainment()">Entertainment</button>
+        <button id="general" onclick="peticionGeneral()">General</button>
+        <button id="health" onclick="peticionHealth()">Health</button>
 
    </header>
-
+    <div id="maestro"></div>
    <div id="modalDetalle" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
@@ -29,10 +29,11 @@
         <p class="contenido"></p>
         <p class="descripcion"></p>
         <p class="publicado"></p>
-        <p class="url"></p>
+        <a href="" class="url" target="_blank">Ver noticia</a>
       </div>
     </div>
   </div>
 </div>
+<img  id="miimagen" src="img/cargando.gif" alt="cargando">
 </body>
 </html>

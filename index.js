@@ -1,20 +1,47 @@
-function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    //evento=window.event;
-    //categoria=evento.target.id;
+function peticionBusiness() {
+  document.getElementById("maestro").innerHTML="";
+  loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+}
 
+function peticionEntertainment() {
+  document.getElementById("maestro").innerHTML="";
+  loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+}
+
+function peticionGeneral() {
+  document.getElementById("maestro").innerHTML="";
+  loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+}
+
+function peticionHealth() {
+  document.getElementById("maestro").innerHTML="";
+  loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+}
+function peticionBuscador()
+{
+  document.getElementById("maestro").innerHTML="";
+  evento= window.event;
+  leidoDelInput= evento.target.value;
+  loadDoc("https://newsapi.org/v2/everything?q="+leidoDelInput+"&apiKey=5e976ef6430f49e08d17ea33c7605f41")
+}
+
+function loadDoc(url) {
+  var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-    
-        misDatos= JSON.parse(this.responseText);
-        //mostrarTitulo(misDatos);
+      if (this.readyState == 1){
+        document.getElementById("miimagen").style.display="inline";
+      }
+
+      if (this.readyState == 4 && this.status == 200) {   
+        document.getElementById("miimagen").style.display="none";
+        misDatos= JSON.parse(this.responseText);;
         for(let i=0;i<misDatos.articles.length;i++){
         crearCard(misDatos.articles[i]);
         }
         
       }
     };
-    xhttp.open("GET", "https://newsapi.org/v2/top-headlines?country=us&category=business&everything?q=bitcoin&apiKey=5e976ef6430f49e08d17ea33c7605f41", true);
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
 
@@ -35,6 +62,7 @@ function crearCard(noticia){
 
   divpadre=document.createElement("div");
   divpadre.setAttribute("class", "w3-container");
+  divpadre.setAttribute("id", "w3-container");
 
   img=document.createElement("img");
   if(noticia.urlToImage==null)
@@ -56,7 +84,8 @@ function crearCard(noticia){
   divpadre.appendChild(titulo);
   divpadre.appendChild(img);
   divpadre.appendChild(boton);
-  document.body.appendChild(divpadre);
+  maestro= document.getElementById("maestro");
+  maestro.appendChild(divpadre);
 }
 
 
@@ -77,12 +106,17 @@ function crearCard(noticia){
         modal.children[0].children[0].children[2].innerHTML= "No hay descripcion";
       else 
         modal.children[0].children[0].children[2].innerHTML= articulo.description;
-    modal.children[0].children[0].children[3].innerHTML= articulo.description;
-    modal.children[0].children[0].children[4].innerHTML= articulo.publishedAt;
-    modal.children[0].children[0].children[5].innerHTML= articulo.url;
+      modal.children[0].children[0].children[3].innerHTML= articulo.description;
+      modal.children[0].children[0].children[4].innerHTML= articulo.publishedAt;
+      modal.children[0].children[0].children[5].href= articulo.url;
   
     //modal.innerHTML = articulo.author;
     modal.style.display = "block";
 
+ }
+
+ window.onload = () =>{
+   loadDoc("https://newsapi.org/v2/everything?q=game&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+   
  }
 
