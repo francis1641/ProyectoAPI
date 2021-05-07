@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-   <header>
+   <header id="header">
         <input id="buscador" placeholder="Escriba aqui su busqueda" onkeyup="peticionBuscador()">
-        <img src="img/BanderaUSA.png" alt="BanderaUSA" width="30" height="20">
-        <img src="img/BanderaFrancia.png" alt="BanderaFrancia" width="30" height="20">
         <button id="business" onclick="peticionBusiness()">Business</button>
         <button id="entertainment" onclick="peticionEntertainment()">Entertainment</button>
         <button id="general" onclick="peticionGeneral()">General</button>
         <button id="health" onclick="peticionHealth()">Health</button>
+        <button id="pagsig" onclick="cambiarPagina()">Página Siguiente</button>
 
    </header>
     <div id="maestro"></div>
+
    <div id="modalDetalle" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">

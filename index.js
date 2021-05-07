@@ -1,21 +1,25 @@
 function peticionBusiness() {
   document.getElementById("maestro").innerHTML="";
   loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+  //intTitle= "business";
 }
 
 function peticionEntertainment() {
   document.getElementById("maestro").innerHTML="";
   loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+  //intTitle= "entertainment";
 }
 
 function peticionGeneral() {
   document.getElementById("maestro").innerHTML="";
   loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+  intTitle= "general";
 }
 
 function peticionHealth() {
   document.getElementById("maestro").innerHTML="";
   loadDoc("https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+  //intTitle= "health";
 }
 function peticionBuscador()
 {
@@ -23,6 +27,13 @@ function peticionBuscador()
   evento= window.event;
   leidoDelInput= evento.target.value;
   loadDoc("https://newsapi.org/v2/everything?q="+leidoDelInput+"&apiKey=5e976ef6430f49e08d17ea33c7605f41")
+  //intTitle= leidoDelInput;
+}
+
+function cambiarPagina(){
+  numPagina=2;
+  loadDoc("https://newsapi.org/v2/everything?&page="+numPagina+"&qInTitle="+intTitle+"&apiKey=5e976ef6430f49e08d17ea33c7605f41");
+  numPagina++;
 }
 
 function loadDoc(url) {
