@@ -55,6 +55,7 @@ header input, button{
 }
 
 .w3-container button{
+    border-radius: 4px;
     margin-top: 2rem;
     margin-bottom: 2rem;
 
@@ -63,6 +64,11 @@ header input, button{
 #miimagen{
     width: 100vw;
     height: 100vh;
+}
+
+#pagsig{
+    margin-left: 1000px;
+    border-radius: 12px;
 }
 
 
