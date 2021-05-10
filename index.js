@@ -45,9 +45,13 @@ function peticionBuscador()
   document.getElementById("maestro").innerHTML="";
   evento= window.event;
   leidoDelInput= evento.target.value;
-
+if(leidoDelInput!=""){
   loadDoc("https://newsapi.org/v2/everything?q="+leidoDelInput+"&page"+numPagina+"&pageSize=15&apiKey=5e976ef6430f49e08d17ea33c7605f41");
-  referenciaFuncion=peticionBuscador;
+}
+else{
+  
+}
+    referenciaFuncion=peticionBuscador;
 }
 
 function cambiarPagina(){
